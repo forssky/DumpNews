@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Inisialisasi Toolbar
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.mainToolbar)
+        setSupportActionBar(toolbar)
+
         // Inisialisasi RecyclerView dan Adapter
         recyclerView = findViewById(R.id.recyclerViewArticles)
         articlesAdapter = ArticlesAdapter(this, articles) { article ->
@@ -32,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                 putExtra("TITLE", article.title)
                 putExtra("CONTENT", article.content)
                 putExtra("IMAGE_URL", article.imageUrl)
+                putExtra("TIMESTAMP", article.timestamp)
             }
             startActivity(intent)
         }
